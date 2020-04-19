@@ -1,0 +1,20 @@
+{% extends "orange_paper/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2><a href = "{% url 'orange_papers:topic' topic.id %}">{{ topic }}</a></h2>
+{% endblock header %}
+
+{% block content %}
+
+  <h4>Add a new entry:</h4>
+  
+  <form action = "{% url 'orange_papers:new_entry' topic.id%}"method = "post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+     <button name="submit" class="btn btn-primary">Add Topic</button>
+    {% endbuttons %}
+  </form>
+  
+{% endblock content %}

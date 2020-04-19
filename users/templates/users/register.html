@@ -1,0 +1,14 @@
+{% extends "orange_paper/base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+
+  <form method = "post" action="{% url 'users:register' %}">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+     <button name="submit" class="btn btn-primary">register</button>
+    {% endbuttons %}
+    <input type = "hidden" name = "next" value="{% url 'orange_papers:index' %}" />
+  </form>
+  
+{% endblock content %}
